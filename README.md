@@ -11,12 +11,21 @@ helm upgrade --install ingress-nginx ingress-nginx \
 # Application
 The application needs to be built before deploying it to k8s.
 
-## Build it
+## Build
+
+> [!IMPORTANT]
+> It is necessary to adjust or remove the `dockerClient` configuration in the `build.gradle` file before building the application.
+> ```groovy
+> dockerClient {
+>     executable = '/Users/cschaible/.rd/bin/docker'
+> }
+> ```
+
 ```bash
 ./gradlew clean build jibDockerBuild
 ```
 
-## Deploy application
+## Deployment
 ```
 cd charts
 helm upgrade --install k8s-deployment k8s-deployment

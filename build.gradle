@@ -33,11 +33,11 @@ jib {
     to {
         image = 'cschaible/k8s-deployment'
     }
-    container{
+    container {
         user = '65532'
         ports = ['8080']
     }
-    dockerClient{
+    dockerClient {
         executable = '/Users/cschaible/.rd/bin/docker'
     }
 }
